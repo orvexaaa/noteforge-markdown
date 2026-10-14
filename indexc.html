@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NoteForge is a minimalist Markdown editor with live preview for writing and organizing notes.">
+
+    <title>NoteForge — Markdown Notes</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">N</div>
+                <span>NoteForge<span class="brand-dot">.</span></span>
+            </div>
+
+            <button class="new-note-btn" id="new-note-btn">
+                <span>+</span> New Note
+            </button>
+
+            <div class="sidebar-heading">
+                <span>YOUR WORKSPACE</span>
+            </div>
+
+            <nav class="notes-list" id="notes-list">
+                <!-- Notes will be rendered by JavaScript -->
+            </nav>
+
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                <span>All changes saved locally</span>
+            </div>
+        </aside>
+
+        <!-- Main workspace -->
+        <main class="workspace">
+            <header class="topbar">
+                <div class="breadcrumb">
+                    <span>Workspace</span>
+                    <span>/</span>
+                    <span id="breadcrumb-title">Untitled Note</span>
+                </div>
+
+                <div class="topbar-actions">
+                    <span class="save-status" id="save-status">
+                        All changes saved
+                    </span>
+
+                    <button class="export-btn" id="export-btn">
+                        Export .md
+                    </button>
+                </div>
+            </header>
+
+            <section class="editor-layout">
+                <!-- Writing panel -->
+                <section class="editor-panel">
+                    <div class="note-meta">
+                        <span class="note-type">MARKDOWN DOCUMENT</span>
+                        <span id="word-count">0 words</span>
+                    </div>
+
+                    <input
+                        type="text"
+                        class="note-title"
+                        id="note-title"
+                        placeholder="Untitled Note"
+                        value="Welcome to NoteForge"
+                        aria-label="Note title"
+                    >
+
+                    <div class="format-toolbar" aria-label="Markdown formatting">
+                        <button class="format-btn" data-format="bold" title="Bold">
+                            <strong>B</strong>
+                        </button>
+
+                        <button class="format-btn" data-format="italic" title="Italic">
+                            <em>I</em>
+                        </button>
+
+                        <button class="format-btn" data-format="heading" title="Heading">
+                            H
+                        </button>
+
+                        <button class="format-btn" data-format="list" title="List">
+                            ☷
+                        </button>
+
+                        <button class="format-btn" data-format="code" title="Code">
+                            &lt;/&gt;
+                        </button>
+
+                        <button class="format-btn" data-format="link" title="Link">
+                            ↗
+                        </button>
+                    </div>
+
+                    <textarea
+                        class="markdown-input"
+                        id="markdown-input"
+                        placeholder="Start writing in Markdown..."
+                        spellcheck="false"
+                        aria-label="Markdown editor"
+                    ># Welcome to NoteForge
+
+Your ideas deserve a place to grow.
+
+## Why Markdown?
+
+Markdown lets you write simple text that can be formatted into beautiful documents.
+
+- Keep your notes organized
+- Write with a distraction-free editor
+- Preview your work in real time
+
+**Start creating something great.**</textarea>
+
+                    <div class="editor-footer">
+                        <span>Markdown supported</span>
+                        <span id="char-count">0 characters</span>
+                    </div>
+                </section>
+
+                <!-- Preview panel -->
+                <section class="preview-panel">
+                    <div class="preview-header">
+                        <div>
+                            <span class="preview-indicator"></span>
+                            <span>LIVE PREVIEW</span>
+                        </div>
+
+                        <span class="preview-label">Rendered output</span>
+                    </div>
+
+                    <article
+                        class="preview-content"
+                        id="preview-content"
+                    >
+                        <p class="preview-placeholder">
+                            Your formatted notes will appear here.
+                        </p>
+                    </article>
+                </section>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
